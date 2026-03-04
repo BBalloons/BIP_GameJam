@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://xlfwohkwtiq4"]
+
+[ext_resource type="PackedScene" uid="uid://cp8bktwqxrjat" path="res://Levels/base_level.tscn" id="1_2385j"]
+[ext_resource type="PackedScene" uid="uid://ghnsng3gam6j" path="res://Player/player.tscn" id="2_c5oim"]
+[ext_resource type="Material" uid="uid://bh7os1h37twp7" path="res://Materials/border.tres" id="2_eh6o7"]
+[ext_resource type="Material" uid="uid://ca1u5cvjikxqh" path="res://Materials/wall.tres" id="4_eh6o7"]
+
+[node name="Level3" type="Node3D" unique_id=1232480785]
+
+[node name="Base Level" parent="." unique_id=911909588 instance=ExtResource("1_2385j")]
+
+[node name="Borders" type="Node3D" parent="." unique_id=891218650]
+
+[node name="Border" type="CSGBox3D" parent="Borders" unique_id=970974943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -2)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(1, 2, 4)
+material = ExtResource("2_eh6o7")
+
+[node name="Border2" type="CSGBox3D" parent="Borders" unique_id=2094967316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 1.5, -0.5)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(3.5, 2, 1)
+material = ExtResource("2_eh6o7")
+
+[node name="Player" parent="." unique_id=2077333565 instance=ExtResource("2_c5oim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 1)
+
+[node name="Walls" type="Node3D" parent="." unique_id=1707129736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 0)
+
+[node name="Wall" type="CSGBox3D" parent="Walls" unique_id=1284960307]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0)
+material_override = ExtResource("4_eh6o7")
+use_collision = true
+size = Vector3(1, 2, 8)
+
+[node name="Wall2" type="CSGBox3D" parent="Walls" unique_id=926292318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, 3.5)
+material_override = ExtResource("4_eh6o7")
+use_collision = true
+size = Vector3(7, 2, 1)
+
+[node name="Wall3" type="CSGBox3D" parent="Walls" unique_id=536421161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 1.5)
+material_override = ExtResource("4_eh6o7")
+use_collision = true
+size = Vector3(1, 2, 3)
+
+[node name="Wall4" type="CSGBox3D" parent="Walls" unique_id=607905507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0.5, -3.5)
+material_override = ExtResource("4_eh6o7")
+use_collision = true
+size = Vector3(2.5, 2, 1)

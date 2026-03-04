@@ -9,6 +9,5 @@ func _physics_process(delta: float) -> void:
 		velocity.z = direction.y * SPEED
 	else:
 		velocity = Vector3.ZERO
-		print("absolutely nothung")
 
 	move_and_slide()
