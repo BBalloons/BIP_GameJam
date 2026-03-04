@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ddldd5whpbyje"]
+
+[ext_resource type="PackedScene" uid="uid://cp8bktwqxrjat" path="res://Levels/base_level.tscn" id="1_24phs"]
+[ext_resource type="Material" uid="uid://bgr63v6yx5kxc" path="res://Materials/elements.tres" id="2_ty1rc"]
+[ext_resource type="Material" uid="uid://ca1u5cvjikxqh" path="res://Materials/wall.tres" id="3_m135w"]
+[ext_resource type="PackedScene" uid="uid://ghnsng3gam6j" path="res://Player/player.tscn" id="4_pcft3"]
+
+[node name="Level2" type="Node3D" unique_id=356716588]
+
+[node name="Base Level" parent="." unique_id=911909588 instance=ExtResource("1_24phs")]
+
+[node name="LevelElements" type="Node3D" parent="." unique_id=1365971917]
+
+[node name="Button" type="CSGCylinder3D" parent="LevelElements" unique_id=601402558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 1.5)
+use_collision = true
+height = 0.4
+material = ExtResource("2_ty1rc")
+
+[node name="Wire" type="CSGBox3D" parent="LevelElements" unique_id=1242236452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.6, -1)
+use_collision = true
+size = Vector3(0.1, 0.1, 4)
+material = ExtResource("2_ty1rc")
+
+[node name="Walls" type="Node3D" parent="." unique_id=1600896011]
+
+[node name="Wall" type="CSGBox3D" parent="Walls" unique_id=1337486120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.5, -3)
+material_override = ExtResource("3_m135w")
+use_collision = true
+size = Vector3(1, 2, 2)
+
+[node name="Wall3" type="CSGBox3D" parent="Walls" unique_id=1515679203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -3)
+material_override = ExtResource("3_m135w")
+use_collision = true
+size = Vector3(1, 2, 2)
+
+[node name="Wall2" type="CSGBox3D" parent="Walls" unique_id=662968314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.5, -1.5)
+material_override = ExtResource("3_m135w")
+use_collision = true
+size = Vector3(4, 2, 1)
+
+[node name="Player" parent="." unique_id=1368489800 instance=ExtResource("4_pcft3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 2)
