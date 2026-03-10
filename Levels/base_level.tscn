@@ -11,11 +11,15 @@ sky_material = SubResource("ProceduralSkyMaterial_drvgu")
 
 [sub_resource type="Environment" id="Environment_nxogm"]
 background_mode = 1
-background_color = Color(0.105882354, 0.09019608, 0.12941177, 1)
+background_color = Color(1, 1, 1, 1)
 sky = SubResource("Sky_ulcgi")
-tonemap_mode = 2
+ambient_light_color = Color(0, 0.05886562, 0.46591282, 1)
+tonemap_mode = 1
+tonemap_exposure = 2.0
 glow_enabled = true
-glow_bloom = 0.2
+glow_normalized = true
+glow_intensity = 0.2
+glow_bloom = 0.24
 volumetric_fog_density = 0.02
 
 [node name="Base Level" type="Node3D" unique_id=911909588]
@@ -25,6 +29,7 @@ environment = SubResource("Environment_nxogm")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=281795974]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4, 0)
+light_energy = 0.2
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=131014380]
 use_collision = true
@@ -32,7 +37,9 @@ size = Vector3(8, 1, 8)
 material = ExtResource("1_3vydx")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1340249960]
+transform = Transform3D(0.70710653, -0.4999998, 0.49999982, 0, 0.7071066, 0.70710653, -0.70710653, -0.4999998, 0.49999982, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=706028244]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 12, 0)
-size = 15.0
+[node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=410028864]
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, 0, 0, 11.000004)
+projection = 1
+size = 14.0

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cinxona0w0v1x"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3uf7s"]
+
+[node name="Ghost" type="CharacterBody3D" unique_id=936137053]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1455187433]
+shape = SubResource("CapsuleShape3D_3uf7s")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=616931894]
+light_color = Color(0.72137666, 0.74158984, 0.9834909, 1)
+light_energy = 0.2
+light_indirect_energy = 4.0
+omni_range = 3.0

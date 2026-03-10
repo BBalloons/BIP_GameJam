@@ -26,9 +26,11 @@ project/assembly_name="BIP Game Jam"
 [file_customization]
 
 folder_colors={
+"res://Entities/": "orange",
+"res://Entities/Ghost/": "purple",
+"res://Entities/Player/": "blue",
 "res://Levels/": "green",
-"res://Materials/": "red",
-"res://Player/": "blue"
+"res://Materials/": "red"
 }
 
 [input]
@@ -51,6 +53,11 @@ up={
 down={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":115,"location":0,"echo":false,"script":null)
+]
+}
+shift={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":88,"key_label":0,"unicode":120,"location":0,"echo":false,"script":null)
 ]
 }
 

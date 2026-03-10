@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ghnsng3gam6j"]
+
+[ext_resource type="Script" uid="uid://cnbwkdlnrtvfb" path="res://Entities/Player/player.gd" id="1_4ntmi"]
+[ext_resource type="Material" uid="uid://p3tkkew1kf8d" path="res://Materials/player_ground.tres" id="1_plgl1"]
+[ext_resource type="Script" uid="uid://bv5kljidkxv4f" path="res://Entities/state_machine.gd" id="3_lu8i8"]
+[ext_resource type="Script" uid="uid://bypfkydpi60li" path="res://Entities/Player/player_ragdoll.gd" id="4_5c2io"]
+[ext_resource type="Script" uid="uid://cnx4f61566ldw" path="res://Entities/Player/player_haunted.gd" id="4_tekja"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eursf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_houcm"]
+
+[node name="Player" type="CharacterBody3D" unique_id=2077333565]
+script = ExtResource("1_4ntmi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1470022121]
+shape = SubResource("CapsuleShape3D_eursf")
+
+[node name="Mesh_Player" type="MeshInstance3D" parent="." unique_id=1222136617]
+material_override = ExtResource("1_plgl1")
+mesh = SubResource("CapsuleMesh_houcm")
+
+[node name="State_Machine" type="Node" parent="." unique_id=1422188994 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_lu8i8")
+initial_state = NodePath("Haunted")
+
+[node name="Ragdoll" type="Node" parent="State_Machine" unique_id=786792359]
+script = ExtResource("4_5c2io")
+
+[node name="Haunted" type="Node" parent="State_Machine" unique_id=50878208 node_paths=PackedStringArray("player")]
+script = ExtResource("4_tekja")
+player = NodePath("../..")
