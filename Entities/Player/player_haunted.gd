@@ -1,14 +1,14 @@
 extends State
 
 @export var player: CharacterBody3D
-const GHOST = preload("uid://cinxona0w0v1x")
+
 
 var target_pos: Vector3 = Vector3.ZERO
 var SPEED: float = 4.0
 var is_moving: bool = false
 
 func Enter():
-	pass
+	target_pos = player.global_position
 
 func Update(_delta: float):
 	pass
@@ -39,7 +39,4 @@ func _move(delta: float):
 		is_moving = false
 
 func Exit():
-	target_pos = player.global_position
-	var instance = GHOST.instantiate()
-	get_tree().current_scene.add_child(instance)
-	instance.global_position = target_pos
+	pass

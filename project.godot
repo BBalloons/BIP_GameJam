@@ -33,6 +33,10 @@ folder_colors={
 "res://Materials/": "red"
 }
 
+[global_group]
+
+player=""
+
 [input]
 
 left={

@@ -18,11 +18,18 @@ metadata/_editor_floor_ = Vector3(0, 2, 0)
 [node name="Node3D" parent="Base Level" index="3" unique_id=1340249960]
 transform = Transform3D(0.70710653, -0.49999973, 0.49999973, 0, 0.7071064, 0.7071064, -0.70710653, -0.49999973, 0.49999973, 0, 0, 0)
 
-[node name="Player" parent="." unique_id=1368489800 instance=ExtResource("3_fy36t")]
+[node name="Player" parent="." unique_id=1368489800 groups=["player"] instance=ExtResource("3_fy36t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, 2.5)
 
 [node name="State_Machine" parent="Player" index="2" unique_id=1422188994 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Haunted")
 
+[node name="Player2" parent="." unique_id=2077333565 groups=["player"] instance=ExtResource("3_fy36t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, -1.5)
+
+[node name="State_Machine" parent="Player2" index="2" unique_id=1422188994 node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("Ragdoll")
+
 [editable path="Base Level"]
 [editable path="Player"]
+[editable path="Player2"]
