@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ghnsng3gam6j"]
 
 [ext_resource type="Material" uid="uid://54aeegf7w10d" path="res://Materials/player_ghost.tres" id="1_tekja"]
+[ext_resource type="Material" uid="uid://bgr63v6yx5kxc" path="res://Materials/elements.tres" id="2_5c2io"]
 [ext_resource type="Script" uid="uid://bv5kljidkxv4f" path="res://Entities/state_machine.gd" id="3_lu8i8"]
 [ext_resource type="Script" uid="uid://bypfkydpi60li" path="res://Entities/Player/player_ragdoll.gd" id="4_5c2io"]
 [ext_resource type="Script" uid="uid://cnx4f61566ldw" path="res://Entities/Player/player_haunted.gd" id="4_tekja"]
@@ -16,6 +17,11 @@ material = ExtResource("1_tekja")
 shape = SubResource("CapsuleShape3D_eursf")
 
 [node name="Mesh_Player" type="MeshInstance3D" parent="." unique_id=1222136617]
+mesh = SubResource("CapsuleMesh_houcm")
+
+[node name="Mesh_Player2" type="MeshInstance3D" parent="." unique_id=1472571465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.742278e-08, 0, -2)
+material_override = ExtResource("2_5c2io")
 mesh = SubResource("CapsuleMesh_houcm")
 
 [node name="State_Machine" type="Node" parent="." unique_id=1422188994]

@@ -1,67 +1,28 @@
 [gd_scene format=3 uid="uid://kt52dkr7wrid"]
 
+[ext_resource type="Script" uid="uid://cm3h1rn2um3pe" path="res://Levels/level.gd" id="1_fy36t"]
 [ext_resource type="PackedScene" uid="uid://cp8bktwqxrjat" path="res://Levels/base_level.tscn" id="1_t21ke"]
-[ext_resource type="Material" uid="uid://ca1u5cvjikxqh" path="res://Materials/wall.tres" id="2_i4kf4"]
 [ext_resource type="PackedScene" uid="uid://ghnsng3gam6j" path="res://Entities/Player/player.tscn" id="3_fy36t"]
-[ext_resource type="Material" uid="uid://bh7os1h37twp7" path="res://Materials/border.tres" id="3_njhy2"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6f6w"]
-albedo_color = Color(0.69411767, 0.25882354, 1, 1)
 
 [node name="Level1" type="Node3D" unique_id=85168452]
+script = ExtResource("1_fy36t")
 
 [node name="Base Level" parent="." unique_id=911909588 instance=ExtResource("1_t21ke")]
 
-[node name="Walls" type="Node3D" parent="." unique_id=2109886198]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5, 0, 0.5)
+[node name="GridMap" parent="Base Level" index="2" unique_id=1751451503]
+data = {
+"cells": PackedInt32Array(65532, 65532, 0, 65532, 65533, 0, 65532, 65534, 0, 65532, 65535, 0, 65532, 0, 0, 65532, 1, 0, 65532, 2, 0, 65532, 3, 0, 65533, 65532, 0, 65533, 65533, 0, 65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65533, 1, 0, 65533, 2, 0, 65533, 3, 0, 65534, 65532, 0, 65534, 65533, 0, 65534, 65534, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 1, 0, 65534, 2, 0, 65534, 3, 0, 65535, 65532, 0, 65535, 65533, 0, 65535, 65534, 0, 65535, 65535, 0, 65535, 0, 0, 65535, 1, 0, 65535, 2, 0, 65535, 3, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 1, 65532, 0, 1, 65533, 0, 1, 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 2, 65532, 0, 2, 65533, 0, 2, 65534, 0, 2, 65535, 0, 2, 0, 0, 2, 1, 0, 2, 2, 0, 2, 3, 0, 3, 65532, 0, 3, 65533, 0, 3, 65534, 0, 3, 65535, 0, 3, 0, 0, 3, 1, 0, 3, 2, 0, 3, 3, 0, 65539, 65535, 1, 65536, 65535, 1, 65537, 65535, 1, 65538, 65535, 1, 65536, 65532, 786433, 65536, 65533, 786433, 65536, 65534, 786433, 131072, 65532, 786433, 131072, 65533, 786433, 131072, 65534, 786433, 131072, 65535, 786433, 131073, 65535, 786433, 131074, 65535, 786433, 131075, 65535, 786433)
+}
+metadata/_editor_floor_ = Vector3(0, 2, 0)
 
-[node name="Wall" type="CSGBox3D" parent="Walls" unique_id=980309079]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -0.4999999)
-use_collision = true
-size = Vector3(3, 2, 1)
-material = ExtResource("2_i4kf4")
-
-[node name="Wall2" type="CSGBox3D" parent="Walls" unique_id=350790079]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99999976, 1.5, 1.25)
-use_collision = true
-size = Vector3(1, 2, 2.5)
-material = ExtResource("2_i4kf4")
-
-[node name="Borders" type="Node3D" parent="." unique_id=533688340]
-
-[node name="Border" type="CSGBox3D" parent="Borders" unique_id=1637358595]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1.5, 0.5)
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-size = Vector3(1, 2, 7)
-material = ExtResource("3_njhy2")
-
-[node name="Border2" type="CSGBox3D" parent="Borders" unique_id=1310419344]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.5, 0)
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-size = Vector3(1, 2, 8)
-material = ExtResource("3_njhy2")
-
-[node name="Border3" type="CSGBox3D" parent="Borders" unique_id=607392982]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.5, 3.5)
-material_override = ExtResource("3_njhy2")
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-size = Vector3(7, 2, 1)
-material = SubResource("StandardMaterial3D_m6f6w")
-
-[node name="Border4" type="CSGBox3D" parent="Borders" unique_id=1603094506]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.5, -3.5)
-material_override = ExtResource("3_njhy2")
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-size = Vector3(7, 2, 1)
-material = SubResource("StandardMaterial3D_m6f6w")
+[node name="Node3D" parent="Base Level" index="3" unique_id=1340249960]
+transform = Transform3D(0.70710653, -0.49999973, 0.49999973, 0, 0.7071064, 0.7071064, -0.70710653, -0.49999973, 0.49999973, 0, 0, 0)
 
 [node name="Player" parent="." unique_id=1368489800 instance=ExtResource("3_fy36t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, 2.5)
+
+[node name="State_Machine" parent="Player" index="2" unique_id=1422188994 node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("Haunted")
+
+[editable path="Base Level"]
+[editable path="Player"]

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://tili2e22g0on"]
+
+[ext_resource type="Material" uid="uid://cw8lua3epvd7j" path="res://Materials/floor.tres" id="1_nihwc"]
+[ext_resource type="Material" uid="uid://bh7os1h37twp7" path="res://Materials/border.tres" id="2_vsotb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ebptq"]
+material = ExtResource("1_nihwc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vsotb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gewon"]
+material = ExtResource("2_vsotb")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ebptq"]
+
+[node name="GridMap" type="Node3D" unique_id=2050983384]
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1000585885]
+mesh = SubResource("BoxMesh_ebptq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=1585979213]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=292111421]
+shape = SubResource("BoxShape3D_vsotb")
+
+[node name="Wall" type="MeshInstance3D" parent="." unique_id=356164652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+mesh = SubResource("BoxMesh_gewon")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall" unique_id=1096108442]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/StaticBody3D" unique_id=1654141320]
+shape = SubResource("BoxShape3D_ebptq")

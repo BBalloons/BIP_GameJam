@@ -1,11 +1,11 @@
 extends State
 
+func Enter():
+	pass
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func Physics_Update(_delta: float):
+	if Input.is_action_just_pressed("shift"):
+		Transition.emit("Haunted")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func Exit():
 	pass

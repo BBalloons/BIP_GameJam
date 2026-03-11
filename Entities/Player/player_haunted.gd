@@ -1,7 +1,11 @@
 extends State
+
 @export var player: CharacterBody3D
-const SPEED = 5.0
-var direction: Vector2
+const GHOST = preload("uid://cinxona0w0v1x")
+
+var target_pos: Vector3 = Vector3.ZERO
+var SPEED: float = 4.0
+var is_moving: bool = false
 
 func Enter():
 	pass
@@ -11,13 +15,31 @@ func Update(_delta: float):
 
 func Physics_Update(_delta: float):
 	if Input.is_action_just_pressed("shift"):
-		Exit()
-	direction = Input.get_vector("left", "right", "up", "down")
-	if direction:
-		player.velocity.x = direction.x * SPEED
-		player.velocity.z = direction.y * SPEED
+		Transition.emit("Ragdoll")
+	if is_moving:
+		_move(_delta)
 	else:
-		player.velocity = Vector3.ZERO
+		if Input.is_action_pressed("up") and !%up.is_colliding():
+			target_pos = player.global_position + player.transform.basis * Vector3(0, 0, -1)
+			is_moving = true
+		elif Input.is_action_pressed("down") and !%down.is_colliding():
+			target_pos = player.global_position + player.transform.basis * Vector3(0, 0, 1)
+			is_moving = true
+		elif Input.is_action_pressed("left") and !%left.is_colliding():
+			target_pos = player.global_position + player.transform.basis * Vector3(-1, 0, 0)
+			is_moving = true
+		elif Input.is_action_pressed("right") and !%right.is_colliding():
+			target_pos = player.global_position + player.transform.basis * Vector3(1, 0, 0)
+			is_moving = true
+
+func _move(delta: float):
+	player.global_position = player.global_position.move_toward(target_pos, SPEED * delta)
+	if player.global_position.is_equal_approx(target_pos):
+		player.global_position = target_pos
+		is_moving = false
 
 func Exit():
-	pass
+	target_pos = player.global_position
+	var instance = GHOST.instantiate()
+	get_tree().current_scene.add_child(instance)
+	instance.global_position = target_pos
